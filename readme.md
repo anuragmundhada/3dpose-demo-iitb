@@ -1,10 +1,11 @@
 # Structure-Aware and Temporally Coherent 3D Human Pose Estimation
 
-This is the demo code for the paper Structure-Aware and Temporally Coherent 3D Human Pose Estimation
-Project page: tinyurl.com/pose-iitb
-arXiv link: https://arxiv.org/abs/1711.09250v1
+This is the demo code for the paper Structure-Aware and Temporally Coherent 3D Human Pose Estimation.
 
-Parts of this code have been taken from [Stacked Hourglass Network](https://github.com/anewell/pose-hg-train) and [Towards 3D pose in the wild](https://github.com/xingyizhou/pose-hg-3d)
+[Project page](https://tinyurl.com/pose-iitb)
+[arXiv](https://arxiv.org/abs/1711.09250v1)
+
+Parts of this code have been taken from [Stacked Hourglass Network](https://github.com/anewell/pose-hg-train) and [Towards 3D Human Pose Estimation in the Wild: a Weakly-supervised Approach](https://github.com/xingyizhou/pose-hg-3d).
 
 ## Requirements
 - cudnn
