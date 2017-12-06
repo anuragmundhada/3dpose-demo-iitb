@@ -55,7 +55,9 @@ def Show3d(data):
   ax.set_ylabel('x') 
   ax.set_zlabel('y')
   oo = max(joint.max(), 2) / 8
-  xmax, ymax, zmax, xmin, ymin, zmin = oo, oo, oo, -oo, -oo, -oo
+  # xmax, ymax, zmax, xmin, ymin, zmin = oo, oo, oo, -oo, -oo, -oo
+  # xmax, ymax, zmax, xmin, ymin, zmin = 2000, 1000, 2000, -3000, -3500, -3000
+  xmax, xmin, zmax, zmin, ymax, ymin = 2000,-3000,2000,-3000, 2000, -3000
   if 'gt' in data:
     show_3d(ax, data['gt'], 'r')
   show_3d(ax, joint, 'b')
@@ -71,7 +73,7 @@ def Show3d(data):
     if img.shape[0] == 3:
       img = img.transpose(1, 2, 0)
     img = (img * 255).astype(np.uint8).copy()
-    show_2d(img, joint.reshape(J, 3)[:, :2], (255, 0, 0))
+    # show_2d(img, joint.reshape(J, 3)[:, :2], (255, 0, 0))
     if 'gt' in data:
         show_2d(img, data['gt'].reshape(J, 3)[:, :2], (0, 0, 255))
     cv2.imshow('img', img)

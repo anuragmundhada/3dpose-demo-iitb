@@ -15,7 +15,7 @@ cmd:option('-savePreds', '', 'path to csv file if you want to save the predictio
 cmd:option('-convModel', '../models/unit-pose-net.t7', 'Path of the single image model')
 cmd:option('-temporalModel', '../models/time-pose-net.t7', ' Path of the temporal model')
 cmd:option('-skelFit', 1, 'Fit a standard skeleton to predicted poses')
-cmd:option('-display', 1, 'Display the poses')
+cmd:option('-display',20, 'Display the poses')
 cmd:option('-exp','default','Name of experiment')
 
 opt = cmd:parse(arg)
@@ -48,7 +48,7 @@ for img in f:lines() do
 
     -- Temporal model kicks in when we have pose estimates for 20 frames
     if count >= 20 then
-      pred = timeModel:forward(torch.cat(framebuffer))
+      -- pred = timeModel:forward(torch.cat(framebuffer))
       table.remove(framebuffer,1)
     end
 
@@ -58,7 +58,7 @@ for img in f:lines() do
     	pred = fit_standard_skeleton(pred)
     end
 
-    if opt.display and count % 20 ==0 then
+    if opt.display > 0 and count % opt.display ==0 then
     	pyFunc('Show3d', {joint=4*pred:float(), img=img, noPause = torch.zeros(1), id = torch.ones(1) * 1})
     end
     if opt.savePreds ~= '' then

@@ -10,7 +10,6 @@ skeletonRef = {{1,2,1},    {2,3,1},    {3,7,1},
                     {13,9,3},   {11,12,3},  {12,13,3},
                     {14,9,4},   {14,15,4},  {15,16,4}}
 
-
 function fit_standard_skeleton(pred)
     output = pred:clone():fill(0)
     for j = 1, #tree do
@@ -27,7 +26,6 @@ function fit_standard_skeleton(pred)
     end
     return output
 end
-
 
 function convert_heatmap_to_worldcoor(outputReg, outputHM)
     local Reg = outputReg
@@ -88,7 +86,6 @@ function getPreds(hm)
     
     return preds
 end
-
 
 function saveData(dict, tmpFile)
     local file = hdf5.open(tmpFile, 'w')
