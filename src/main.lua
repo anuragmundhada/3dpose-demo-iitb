@@ -11,12 +11,11 @@ cmd = torch.CmdLine()
 
 cmd:option('-gpu',1,'Use gpu')
 cmd:option('-imagePath', '../data/', ' Path of predictions of ff model ')
-cmd:option('-savePreds', '', 'path to csv file if you want to save the predictions ')
 cmd:option('-convModel', '../models/unit-pose-net.t7', 'Path of the single image model')
 cmd:option('-temporalModel', '../models/time-pose-net.t7', ' Path of the temporal model')
 cmd:option('-skelFit', 1, 'Fit a standard skeleton to predicted poses')
 cmd:option('-display',20, 'Display the poses')
-cmd:option('-exp','default','Name of experiment')
+cmd:option('-savePreds','default','path to csv file if you want to save the predictions')
 
 opt = cmd:parse(arg)
 
@@ -48,7 +47,7 @@ for img in f:lines() do
 
     -- Temporal model kicks in when we have pose estimates for 20 frames
     if count >= 20 then
-      -- pred = timeModel:forward(torch.cat(framebuffer))
+      pred = timeModel:forward(torch.cat(framebuffer))
       table.remove(framebuffer,1)
     end
 
@@ -71,5 +70,5 @@ end
 
 if opt.savePreds ~= '' then
     print("Saving predictions")
-	csvigo.save({path = '../results/'..opt.exp..'.csv', data = outputs, verbose = true})
+	csvigo.save({path = '../results/'..opt.savePreds..'.csv', data = outputs, verbose = true})
 end
