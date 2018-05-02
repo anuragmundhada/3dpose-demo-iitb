@@ -23,6 +23,3 @@ Parts of this code have been taken from [Stacked Hourglass Network](https://gith
  
 
 We provide an example sequence of images in `data` from Human3.6M dataset. For testing your own video, it is important that the person should be at the center of the image and most of the body parts should be within the image. 
-
-Please drop an email to rdabral@cse.iitb.ac.in to request access to the models.
-
