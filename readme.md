@@ -1,19 +1,16 @@
-# Structure-Aware and Temporally Coherent 3D Human Pose Estimation
+# Learning 3D Human Pose from Structure and Motion
 
-This is the demo code for the paper Structure-Aware and Temporally Coherent 3D Human Pose Estimation.
-
-[Project page](https://tinyurl.com/pose-iitb)
-[arXiv](https://arxiv.org/abs/1711.09250v1)
+This is the demo code for the paper [Learning 3D Human Pose from Structure and Motion](https://www.cse.iitb.ac.in/~rdabral/3DPose/)
 
 Parts of this code have been taken from [Stacked Hourglass Network](https://github.com/anewell/pose-hg-train) and [Towards 3D Human Pose Estimation in the Wild: a Weakly-supervised Approach](https://github.com/xingyizhou/pose-hg-3d).
 
 ## Requirements
 - cudnn
-- [Torch7](https://github.com/torch/torch7) with hdf5 and image
+- [Torch7](https://github.com/torch/torch7) with hdf5, csvigo and image packages
 - Python with h5py and opencv2
 
 ## Running the code
-- Place the unit-pose-net.t7 and time-pose-net.t7 models in 'models/' and the image sequence in 'data/'
+- Download the [models](https://drive.google.com/open?id=1eCdwb5lrakmHo79YLaKbXOV39tTkJSzy) and place them in 'models/' and the test image sequence in 'data/'
 - Run `th main.lua'
 
 ## Options
@@ -22,4 +19,15 @@ Parts of this code have been taken from [Stacked Hourglass Network](https://gith
  - Every 20th frame is displayed by default. You can change that using the 'display' option.
  
 
-We provide an example sequence of images in `data` from Human3.6M dataset. For testing your own video, it is important that the person should be at the center of the image and most of the body parts should be within the image. 
+We provide an example sequence of images in 'data/' from Human3.6M dataset. For testing your own video, it is important that the person should be at the center of the image and most of the body parts should be within the image. 
+
+## Reference
+```
+@InProceedings{Dabral_2018_ECCV,
+author = {Dabral, Rishabh and Mundhada, Anurag and Kusupati, Uday and Afaque, Safeer and Sharma, Abhishek and Jain, Arjun},
+title = {Learning 3D Human Pose from Structure and Motion},
+booktitle = {The European Conference on Computer Vision (ECCV)},
+month = {September},
+year = {2018}
+} 
+```
